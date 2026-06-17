@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Приглашение на День Рождения</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="bg-layer" aria-hidden="true">
+    <div class="bg-layer__gradient"></div>
+    <div class="bg-layer__grain"></div>
+    <svg class="floral floral--tl" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+      <path d="M60 20c8 14 22 18 30 30-14 2-24 10-30 22-6-12-16-20-30-22 8-12 22-16 30-30z" fill="currentColor" opacity=".12"/>
+      <circle cx="60" cy="52" r="6" fill="currentColor" opacity=".18"/>
+    </svg>
+    <svg class="floral floral--br" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+      <path d="M60 20c8 14 22 18 30 30-14 2-24 10-30 22-6-12-16-20-30-22 8-12 22-16 30-30z" fill="currentColor" opacity=".1"/>
+    </svg>
+  </div>
+
+  <main class="app">
+    <!-- Стартовый экран -->
+    <section id="start-screen" class="screen screen--active">
+      <div class="hero fade-in">
+        <p class="hero__label">Приглашение</p>
+        <div class="hero__title-wrap">
+          <span class="hero__title-bg" aria-hidden="true">25</span>
+          <div class="hero__photo-frame">
+            <img
+              class="hero__photo photo-filter photo-filter--hero"
+              src="images/photo-hero.png"
+              alt="Илья"
+              width="280"
+              height="380"
+            >
+          </div>
+          <h1 class="hero__title">
+            <span class="hero__title-serif">День</span>
+            <span class="hero__title-sans">Рождения</span>
+          </h1>
+        </div>
+        <div class="card card--glass">
+          <p class="card__text">
+            Привет! Прежде чем попасть на мой праздник, докажи, что ты меня знаешь. Проходи тест!
+          </p>
+          <div class="photo-strip">
+            <div class="photo-strip__item">
+              <img class="photo-filter photo-filter--accent" src="images/photo-elevator.png" alt="" width="120" height="160">
+            </div>
+            <div class="photo-strip__item photo-strip__item--offset">
+              <img class="photo-filter photo-filter--warm" src="images/photo-creative.png" alt="" width="120" height="160">
+            </div>
+          </div>
+          <button class="btn btn--primary" id="start-btn">Начать тест</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Экран вопроса -->
+    <section id="quiz-screen" class="screen">
+      <div class="quiz-layout fade-in">
+        <div class="quiz-side-photo">
+          <img class="photo-filter photo-filter--quiz" src="images/photo-elevator.png" alt="" width="140" height="200">
+        </div>
+        <div class="card card--glass card--quiz">
+          <div class="quiz-header">
+            <span class="quiz-progress" id="progress-text">Вопрос 1 из 6</span>
+            <div class="progress-bar">
+              <div class="progress-bar__fill" id="progress-fill"></div>
+            </div>
+          </div>
+          <h2 class="question" id="question-text"></h2>
+          <div class="answers" id="answers-container"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Финальный экран -->
+    <section id="result-screen" class="screen">
+      <div class="result-layout fade-in">
+        <div class="result-hero">
+          <img class="result-hero__photo photo-filter photo-filter--result" src="images/photo-creative.png" alt="Илья" width="200" height="260">
+          <div class="result-hero__badge" id="result-score"></div>
+        </div>
+        <div class="card card--glass">
+          <h2 class="result-title" id="result-title"></h2>
+          <p class="result-text" id="result-text"></p>
+
+          <div class="event-info">
+            <h3 class="event-info__title">Информация о мероприятии</h3>
+            <ul class="event-info__list">
+              <li>
+                <span class="event-info__label">Дата</span>
+                <span class="event-info__value">25 Июля</span>
+              </li>
+              <li>
+                <span class="event-info__label">Время</span>
+                <span class="event-info__value">15:30</span>
+              </li>
+              <li>
+                <span class="event-info__label">Место</span>
+                <span class="event-info__value">Чебоксары, Обиковская ул., 23Г</span>
+              </li>
+              <li>
+                <span class="event-info__label">Контакты</span>
+                <a class="event-info__link" href="https://t.me/lateestay" target="_blank" rel="noopener noreferrer">Telegram — @lateestay</a>
+              </li>
+            </ul>
+          </div>
+
+          <button class="btn btn--secondary" id="restart-btn">Пройти ещё раз</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/data.js"></script>
+  <script src="js/dom.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/quiz.js"></script>
+</body>
+</html>
