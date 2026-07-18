@@ -10,7 +10,15 @@ function resetQuizState() {
   quizState.isAnswering = false;
 }
 
+function clearAnswerFocus() {
+  if (document.activeElement instanceof HTMLElement) {
+    document.activeElement.blur();
+  }
+}
+
 function renderQuestion() {
+  clearAnswerFocus();
+
   const q = questions[quizState.currentQuestion];
 
   DOM.questionText.textContent = q.text;
@@ -48,7 +56,10 @@ function handleAnswer(selectedIndex, clickedBtn) {
 
   DOM.answersContainer.querySelectorAll('.answer-btn').forEach(btn => {
     btn.disabled = true;
+    btn.blur();
   });
+
+  clearAnswerFocus();
 
   setTimeout(() => {
     quizState.currentQuestion++;

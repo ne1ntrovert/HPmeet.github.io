@@ -165,6 +165,10 @@ body {
   align-items: center;
 }
 
+.app:has(#quiz-screen.screen--active) {
+  max-width: 680px;
+}
+
 .screen {
   display: none;
   width: 100%;
@@ -372,13 +376,13 @@ body {
 /* ===== Quiz ===== */
 .quiz-layout {
   display: flex;
-  gap: 16px;
+  gap: 20px;
   align-items: flex-start;
 }
 
 .quiz-side-photo {
   flex-shrink: 0;
-  width: 90px;
+  width: 225px;
   aspect-ratio: 3 / 4.2;
   border-radius: var(--radius-sm);
   overflow: hidden;
@@ -451,12 +455,25 @@ body {
   cursor: pointer;
   transition: all var(--transition);
   overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
-.answer-btn:hover:not(:disabled) {
-  border-color: rgba(212, 175, 55, 0.35);
-  background: rgba(74, 4, 4, 0.5);
-  transform: translateX(4px);
+@media (hover: hover) and (pointer: fine) {
+  .answer-btn:hover:not(:disabled) {
+    border-color: rgba(212, 175, 55, 0.35);
+    background: rgba(74, 4, 4, 0.5);
+    transform: translateX(4px);
+  }
+}
+
+.answer-btn:focus {
+  outline: none;
+}
+
+.answer-btn:focus-visible {
+  outline: 2px solid rgba(212, 175, 55, 0.45);
+  outline-offset: 2px;
 }
 
 .answer-btn:disabled {
